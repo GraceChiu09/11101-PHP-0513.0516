@@ -6,19 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>線上月曆</title>
+  
+
   <style>
+    body{
+          background-color:#aaa;
+          font-size: large;
+          font-weight: 500;
+          
+  
+        }
     table {
       border-collapse: collapse;
+      border-color: #FF00FF;
+
     }
 
     table td {
-      padding: 5px;
+      padding: 2px;
       text-align: center;
       border: 1px solid #aaa;
+      
     }
 
     .weekend {
-      background: pink;
+      background:#FF00FF;
     }
 
     .workday {
@@ -47,6 +59,7 @@
       <td>五</td>
       <td>六</td>
     </tr>
+
     <?php
 
     $firstDay = date("Y-") . $month . "-1";
