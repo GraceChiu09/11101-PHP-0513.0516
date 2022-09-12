@@ -1,3 +1,4 @@
+<!-- 這是七.4 點選分類網誌 列表後顯示相對應的內容文章 -->
 <style>
     .type{
         cursor: pointer;
@@ -9,6 +10,9 @@
         border-bottom:1px solid blue;
     }
 </style>
+
+
+
 <div>目前位置：首頁 > 分類網誌 > <span id="header">健康新知</span></div>
 <div style="display:flex">
     <fieldset style="width:20%">

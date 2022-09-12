@@ -7,6 +7,7 @@ $options=$Que->all(['subject_id'=>$_GET['id']]);
 
 
 <fieldset>
+    <!-- 13.1 顯示問卷調查內容 -->
     <legend>目前位置：首頁 > 問卷調查 > <?=$subject['text'];?></legend>
 
     <h3><?=$subject['text'];?></h3>

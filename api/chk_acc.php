@@ -1,3 +1,4 @@
+<!-- 確認帳號密碼 -->
 <?php
 include_once "../base.php";
 

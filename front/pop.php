@@ -1,12 +1,16 @@
-<fieldset>
+<!-- 十二 建置人氣文章區 -->
 
+<fieldset>
+     <!-- 1.左上方路徑導覽列  -->
     <legend>目前位置：首頁 > 人氣文章區</legend>
     <table id="pop">
+        <!-- 2. 建置標題 內容 人氣 顯示資料庫的人氣文章-->
         <tr>
             <td width="30%">標題</td>
             <td width="50%">內容</td>
             <td width="20%">人氣</td>
         </tr>
+         
         <?php
         $all=$News->math('count','id',['sh'=>1]);
         $div=5;
@@ -46,6 +50,7 @@
         ?>
     </table>
     <div>
+        <!-- 建立分頁導覽功能 -->
         <?php 
 
         if(($now-1)>0){
@@ -66,6 +71,7 @@
     </div>        
     </table>
 </fieldset>
+<!-- 這是按讚與收回讚的效果 -->
 <script>
 $(".title,.pop").hover(
     function (){

@@ -1,37 +1,21 @@
-<fieldset>
-    <legend>目前位置：首頁 > 問卷調查</legend>
-    <table style="width:95%;margin:auto">
-        <tr>
-            <th class="ct">編號</th>
-            <th class="ct" width="60%">問卷題目</th>
-            <th class="ct">投票總數</th>
-            <th class="ct">結果</th>
-            <th class="ct">狀態</th>
-        </tr>
-    <?php
-    $subjects=$Que->all(['subject_id'=>0]);
-    foreach($subjects as $key => $subject){
-    ?>
-        <tr>
-            <td class="ct"><?=$key+1;?></td>
-            <td><?=$subject['text'];?></td>
-            <td class="ct"><?=$subject['count'];?></td>
-            <td class="ct">
-                <a href="?do=result&id=<?=$subject['id'];?>">結果</a>
-            </td>
-            <td class="ct">
-                <?php
-                    if(!isset($_SESSION['user'])){
-                        echo "請先登入";
-                    }else{
-                        echo "<a href='?do=vote&id={$subject['id']}'>參與投票</a>";
-                    }
+<!-- 這是問卷調查api -->
+<?php
 
-                ?>
-            </td>
-        </tr>
-    <?php
+include_once "../base.php";
+
+if(!empty($_POST['subject'])){
+
+    $Que->save(['text'=>$_POST['subject'],'count'=>0,'subject_id'=>0]);
+    
+    $subject_id=$Que->find(['text'=>$_POST['subject']])['id'];
+
+    if(!empty($_POST['option'])){
+        foreach($_POST['option'] as $opt){
+            $Que->save(['text'=>$opt,'count'=>0,'subject_id'=>$subject_id]);
+        }
     }
-    ?>
-    </table>
-</fieldset>
+
+}
+
+
+to("../back.php?do=que");
